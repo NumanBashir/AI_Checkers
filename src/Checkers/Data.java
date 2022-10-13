@@ -16,7 +16,10 @@ class Data { //Data class begins
     player1 = 1,
     playerKing1 = 2,
     player2 = 3,
-    playerKing2 = 4;
+    playerKing2 = 4,
+    AI_player = 5,
+    AI_King3 = 6;
+
 
     private int[][] board; //declares an int array called board
 

@@ -25,6 +25,7 @@ class Board extends JPanel implements ActionListener, MouseListener { //Board cl
     JLabel message; //message JLabel on frame - indicates whose turn it is
     String Player1; //first player's name
     String Player2; //second player's name
+    String AI; //AI player
 
     public Board() { //default constructor
 
@@ -57,10 +58,7 @@ class Board extends JPanel implements ActionListener, MouseListener { //Board cl
         Object src = evt.getSource();
         if (src == newGame) //if newGame button is pressed, a new game is created
             NewGame();
-        else if (src == howToPlay) //if howToPlay button is pressed, instructions pop up
-            instructions();
-        else if (src == credits) //if credits button is pressed, credits pop up
-            showCredits();
+
     }
 
     void NewGame() { //creates new game
@@ -81,47 +79,27 @@ class Board extends JPanel implements ActionListener, MouseListener { //Board cl
     public void getPlayersNames(){ //gets players names through JTextField
 
         JTextField player1Name = new JTextField("Player 1");
-        JTextField player2Name = new JTextField("Player 2");
+        JTextField AI_Name = new JTextField("AI");
 
         //creates new JPanel to store the JTextFields
         JPanel getNames = new JPanel();
         getNames.setLayout(new BoxLayout(getNames, BoxLayout.PAGE_AXIS));
         getNames.add(player1Name);
-        getNames.add(player2Name);
 
         //player inputs name through Confirm Dialog
-        int result = JOptionPane.showConfirmDialog(null, getNames, "Enter Your Names!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(null, getNames, "Enter Your Name!", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 
         
         if (result == JOptionPane.OK_OPTION) { //if players give names, names are assigned
             Player1 = player1Name.getText();
-            Player2 = player2Name.getText();
+            AI = AI_Name.getText();
         } else { //otherwise default names are given
             Player1 = "Player 1";
-            Player2 = "Player 2";
+            AI = "AI";
         }
 
     }
 
-    void instructions() { //when howToPlay button is pressed, instruction Message Dialog appears
-
-        //brief history of Checkers and a link to read the instructions - the link is not clickable
-        String intro = "Checkers, called Draughts in most countries,\n" +
-                "has been traced back to the 1300s, though it\n" +
-                "may indeed stretch further into history than that.\n" +
-                "These are the standard U.S. rules for Checkers.\n\n"+
-                "Read how to play: http://abt.cm/1d0fHKE";
-
-        JOptionPane.showMessageDialog(null, intro, "What is Checkers", JOptionPane.PLAIN_MESSAGE); //shows message
-
-    }
-
-    void showCredits() { //when credits button is pressed, credits Message Dialog appears
-
-        String credits = "ICS3U | Ms. Shaw\n" + "By Toby Thomas\n" + "01/23/14"; //credits of game
-        JOptionPane.showMessageDialog(null, credits, "Credits", JOptionPane.PLAIN_MESSAGE); //shows message
-
-    }
 
     void gameOver(String str) { //when game is over
 
@@ -154,7 +132,7 @@ class Board extends JPanel implements ActionListener, MouseListener { //Board cl
                 if (currentPlayer == Data.player1) //indicates whose turn it is
                     message.setText("It's " + Player1 + "'s turn.");
                 else
-                    message.setText("It's " + Player2 + "'s turn.");
+                    message.setText("It's " + AI + "'s turn.");
                 repaint(); //repaints board
                 return;
             }
