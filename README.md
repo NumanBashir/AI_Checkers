@@ -1,6 +1,8 @@
 # Java-Checkers
 Two-player checkers, with a modern GUI and automatically calculated moves!
 
+This Repository is used from the following coder:
+
 Coder: Toby Thomas (January 2014)
 
 Play Checkers against a friend on an elegant and modern gameboard!
@@ -11,6 +13,6 @@ piece, its respective possible moves are shown to you, by highlighting the squar
 player is able to jump one of their opponents pieces, the game automatically detects this and forces you to jump.
 Multiple jumps in a row are also possible.
 
-The GUI features a flat and material type gameboard, with buttons to start a new game, learn how to play, and view credits.
+In our version of the game, we want to replace one of the players and have an ubeatable AI to play against.
 
-Enjoy!
+
