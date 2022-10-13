@@ -15,4 +15,4 @@ Multiple jumps in a row are also possible.
 
 In our version of the game, we want to replace one of the players and have an ubeatable AI to play against.
 
-
+All credits of the game goes to **Toby Thomas**
